@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Status, User, User_Task, Status_Task, Task
+from .models import Status, User, User_Task, Status_Task, Task, AuthUser
 
 class StatusSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,7 +12,10 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'name', 'surname', 'patronymic', 'email']
 
-
+class AuthUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AuthUser
+        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'password']
 class User_TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = User_Task

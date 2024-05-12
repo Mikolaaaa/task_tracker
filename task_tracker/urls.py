@@ -2,7 +2,7 @@ from django.urls import path
 from .views import status_list, status_task_list, task_list, user_list, user_task_list, create_status, create_task, \
     create_user, create_task_status, create_task_user, UserTaskList, update_task, update_user, update_status, \
     update_user_task, update_task_status, UserList, delete_stasus, delete_user_task, delete_task, delete_user, \
-    delete_stasus_task
+    delete_stasus_task, user_login, register, handle_logout, auth_user_list
 
 urlpatterns = [
 
@@ -38,6 +38,11 @@ urlpatterns = [
     path('upstatus_task/<int:id>/', update_task_status),
     path('delstatus_task/<int:id>/', delete_stasus_task),
 
+
+    path('api/register/', register),
+    path('api/login/', user_login),
+    path('logout/', handle_logout),
+    path('auth_users/', auth_user_list.as_view()),
 
 
 ]
